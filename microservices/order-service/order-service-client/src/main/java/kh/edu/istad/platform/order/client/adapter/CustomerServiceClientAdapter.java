@@ -1,35 +1,35 @@
 package kh.edu.istad.platform.order.client.adapter;
 
-import kh.edu.istad.platform.order.client.httpClient.CustomerHttpClient;
 import kh.edu.istad.platform.order.domain.dto.QueryCustomerResult;
 import kh.edu.istad.platform.order.domain.port.out.client.CustomerServiceClient;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Component;
-import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Flux;
+import org.springframework.web.client.RestClient;
+
+import java.util.List;
+
+import static org.springframework.security.oauth2.client.web.client
+        .RequestAttributeClientRegistrationIdResolver.clientRegistrationId;
+import static org.springframework.security.oauth2.client.web.client
+        .RequestAttributePrincipalResolver.principal;
 
 @Component
 @RequiredArgsConstructor
 public class CustomerServiceClientAdapter implements CustomerServiceClient {
 
-    private final WebClient.Builder webClientBuilder;
-    private final CustomerHttpClient customerHttpClient;
-
-    public record GivenName(String givenName){
-
-    }
+    @Qualifier("customerServiceRestClient")
+    private final RestClient restClient;
 
     @Override
-    public Flux<QueryCustomerResult> getCustomerNames() {
-//        WebClient webClient = webClientBuilder
-//                .baseUrl("http://customer-service")
-//                .build();
-//
-//        var response = webClient
-//                .get()
-//                .uri("/api/customers")
-//                .retrieve()
-//                .bodyToFlux(GivenName.class);
-        return customerHttpClient.getQueryCustomer();
+    public List<QueryCustomerResult> getCustomerNames() {
+
+        return restClient.get()
+                .uri("/api/customers")
+                .attributes(clientRegistrationId("customer-service"))
+                .attributes(principal("order-service"))
+                .retrieve()
+                .body(new ParameterizedTypeReference<>() {});
     }
 }

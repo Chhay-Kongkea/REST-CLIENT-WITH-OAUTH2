@@ -12,6 +12,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.time.Duration;
+import java.util.List;
 import java.util.Map;
 
 @RequiredArgsConstructor
@@ -26,7 +27,7 @@ public class WebFluxController {
 //    }
 
     @GetMapping("customers")
-    public Flux<QueryCustomerResult> getCustomers(){
+    public List<QueryCustomerResult> getCustomers(){
         return customerServiceClient.getCustomerNames();
     }
 

@@ -19,3 +19,15 @@ spring:
     password: mongodb
     database: db_customer
     authentication-database: admin
+
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:4321
+
+
+logging:
+  level:
+    org.springframework.security: TRACE

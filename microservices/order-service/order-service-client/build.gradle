@@ -8,4 +8,6 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-webclient'
     implementation 'org.springframework.cloud:spring-cloud-starter-loadbalancer'
     testImplementation 'io.projectreactor:reactor-test'
+
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 }

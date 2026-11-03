@@ -26,6 +26,12 @@
                   <project path="$PROJECT_DIR$/microservices" />
                 </projects>
               </build>
+              <build path="$PROJECT_DIR$/microservices/authorization-server" name="authorization-server">
+                <projects>
+                  <project path="$PROJECT_DIR$/microservices/authorization-server" />
+                  <project path="$PROJECT_DIR$/microservices/authorization-server/authorization-server-main" />
+                </projects>
+              </build>
               <build path="$PROJECT_DIR$/microservices/business-service" name="business-service">
                 <projects>
                   <project path="$PROJECT_DIR$/microservices/business-service" />
@@ -73,6 +79,8 @@
             <option value="$PROJECT_DIR$/istad-common/istad-common-swagger" />
             <option value="$PROJECT_DIR$/istad-common/istad-common-webflux" />
             <option value="$PROJECT_DIR$/microservices" />
+            <option value="$PROJECT_DIR$/microservices/authorization-server" />
+            <option value="$PROJECT_DIR$/microservices/authorization-server/authorization-server-main" />
             <option value="$PROJECT_DIR$/microservices/business-service" />
             <option value="$PROJECT_DIR$/microservices/customer-service" />
             <option value="$PROJECT_DIR$/microservices/customer-service/customer-service-domain" />
@@ -90,6 +98,27 @@
             <option value="$PROJECT_DIR$/microservices/order-service/order-service-domain/order-domain-core" />
             <option value="$PROJECT_DIR$/microservices/order-service/order-service-main" />
             <option value="$PROJECT_DIR$/microservices/order-service/order-service-persistence" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <compositeConfiguration>
+          <compositeBuild compositeDefinitionSource="SCRIPT">
+            <builds>
+              <build path="$PROJECT_DIR$/build-logic" name="build-logic">
+                <projects>
+                  <project path="$PROJECT_DIR$/build-logic" />
+                </projects>
+              </build>
+            </builds>
+          </compositeBuild>
+        </compositeConfiguration>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/microservices/authorization-server" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/build-logic" />
+            <option value="$PROJECT_DIR$/microservices/authorization-server" />
+            <option value="$PROJECT_DIR$/microservices/authorization-server/authorization-server-main" />
           </set>
         </option>
       </GradleProjectSettings>

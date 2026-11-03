@@ -1,4 +1,4 @@
-package kh.edu.istad.platform.order.persistence.entity;
+package kh.edu.istad.platfrom.order.persistence.entity;
 
 
 import kh.edu.istad.platfrom.order.persistence.entity.BusinessEntityId;
